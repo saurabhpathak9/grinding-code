@@ -2,7 +2,7 @@ package com.leetcode.easy;
 // 21
 
 
-import com.leetcode.ListNode;
+import com.leetcode.utils.ListNode;
 
 public class MergeTwoSortedLists {
 
