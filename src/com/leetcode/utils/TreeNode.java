@@ -1,5 +1,8 @@
 package com.leetcode.utils;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class TreeNode {
     public int val;
     public TreeNode left;
@@ -20,10 +23,19 @@ public class TreeNode {
 
     @Override
     public String toString() {
-        return "TreeNode{" +
-                "val=" + val +
-                ", left=" + left +
-                ", right=" + right +
-                '}';
+        TreeNode root = this;
+        StringBuilder sb = new StringBuilder();
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(this);
+
+        while (q.size() > 0) {
+            for (int i = 0; i < q.size(); i++) {
+                TreeNode p = q.poll();
+                sb.append("(").append(p.val).append(")");
+                if (p.left != null) q.offer(p.left);
+                if (p.right != null) q.offer(p.right);
+            }
+        }
+        return sb.toString();
     }
 }
